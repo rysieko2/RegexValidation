@@ -6,14 +6,14 @@ import java.util.regex.Pattern;
 
 public class IbanValidation {
     public static void main(String[] args) {
-        checkingIban();
+        checkIban();
     }
 
-    private static void checkingIban() {
-        String ibanNumber;
-        Scanner odczyt = new Scanner(System.in);
-        System.out.print("Podaj nr IBAN: ");
-        ibanNumber = odczyt.nextLine();
+    private static void checkIban() {
+        String iban_number;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter nr IBAN: ");
+        iban_number = scanner.nextLine();
 
         String iban_regex = "^((NO)[0-9A-Z]{2}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{3}|(NO)[0-9A-Z]{13}|" +
                 "(BE)[0-9A-Z]{2}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}|(BE)[0-9A-Z]{14}|" +
@@ -32,13 +32,13 @@ public class IbanValidation {
                 "(MT)[0-9A-Z]{2}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{4}[ ][0-9A-Z]{3}|(MT)[0-9A-Z]{29})$";
 
         Pattern pattern = Pattern.compile(iban_regex);
-        Matcher matcher = pattern.matcher(ibanNumber);
+        Matcher matcher = pattern.matcher(iban_number);
 
         if (matcher.matches()) {
-            System.out.println("Konto nr: " + ibanNumber + " jest poprawne");
+            System.out.println("Account nr: " + iban_number + " is true");
 
         } else {
-            System.out.println("Konto nr: " + ibanNumber + " jest niepoprawne");
+            System.out.println("Account nr: " + iban_number + " is false");
         }
     }
 }
