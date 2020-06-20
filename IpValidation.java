@@ -6,14 +6,14 @@ import java.util.regex.Pattern;
 
 public class IpValidation {
     public static void main(String[] args) {
-        checkingIp();
+        checkIp();
     }
 
-    private static void checkingIp() {
+    private static void checkIp() {
         String ip_number;
-        Scanner odczyt = new Scanner(System.in);
-        System.out.print("Podaj adres Ip: ");
-        ip_number = odczyt.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter address Ip: ");
+        ip_number = scanner.nextLine();
 
 
         String zeroTo255 = "([01]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])";
@@ -26,10 +26,10 @@ public class IpValidation {
         Matcher matcher = pattern.matcher(ip_number);
 
         if (matcher.matches()) {
-            System.out.println("Adres Ip: " + ip_number + " jest poprawny");
+            System.out.println("Address Ip: " + ip_number + "is true");
 
         } else {
-            System.out.println("Adres Ip: " + ip_number + " jest niepoprawny");
+            System.out.println("Address Ip: " + ip_number + " is false");
         }
     }
 }
